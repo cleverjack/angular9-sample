@@ -1,0 +1,15 @@
+<header class="main">
+
+  <app-main-logo></app-main-logo>
+  
+  <app-main-search></app-main-search>
+
+  <app-language-picker [selectedLanguage]="defaultLanguage"
+                   (languageChanged)="onUserChangedLanguage($event)"
+  ></app-language-picker>
+  
+  <app-a11y-flyout></app-a11y-flyout>
+  
+  <app-user-flyout></app-user-flyout>
+
+</header>

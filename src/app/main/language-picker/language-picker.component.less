@@ -1,0 +1,22 @@
+@select-box-list-width: 138px;
+
+app-select-box ::ng-deep {
+    .select-box {
+        width: @select-box-list-width;
+    }
+}
+
+// code style
+:host.language--code {
+    app-select-box ::ng-deep {
+        .select-box {
+            width: 60px;
+            
+            &__list {
+                right: 0;
+                left: auto;
+                width: @select-box-list-width;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<container-element [ngSwitch]="type">
+    <!-- compact style -->
+    <div class="topic topic--compact" [style.--level-color]="riskColor" *ngSwitchCase="'compact'">
+        <i class="topic__icon fas" [class]="topicData.faIcon"></i>
+        <span class="topic__risk">{{ level }}</span>
+    </div>
+
+    <!-- default style -->
+    <div class="topic" [style.--level-color]="riskColor" *ngSwitchDefault>
+        <i class="topic__icon fas" [class]="topicData.faIcon"></i>
+        <span class="topic__name" [title]="topicData.name">{{ topicData.name }}</span>
+        <span class="topic__risk">{{ level }}</span>
+    </div>
+</container-element>

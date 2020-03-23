@@ -1,0 +1,80 @@
+.hidden-effect () {
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed) var(--transition-timing);
+}
+
+.show-effect () {
+    opacity: 1;
+    visibility: visible;
+}
+
+// scroll bar
+.scroll-bar-01 () {
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #414D55;
+    }
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 3px solid #414D55;
+        background-color: #1b1f20;
+    }
+}
+
+.scroll-bar-02 () {
+    &::-webkit-scrollbar-track {
+        // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #414D55;
+    }
+
+    &::-webkit-scrollbar {
+        // width: 12px;
+        width: 5px;
+        background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        box-sizing: border-box;
+        // border: 3px solid #414D55;
+        background-color: #f6715b;
+    }
+}
+
+// create material Icon as pseudo element
+.materialIconFrom(@content, @type: after) {
+    &:@{type} {
+        content: @content;
+        font-family: "Material Icons";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 18px;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        font-weight: bold;
+        direction: ltr;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'liga';
+    }
+}
+
+// text oneline overflow
+.text-overflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

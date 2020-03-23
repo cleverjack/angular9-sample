@@ -1,0 +1,41 @@
+@import "../../../../_utils.less";
+
+.policy {
+    position: relative;
+    padding: 4px 4.5px 4px 9px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--policy-comp-bg);
+    user-select: none;
+    min-height: 38px;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color);
+    }
+    
+    &__icon {
+        font-size: 16px;
+        color: var(--policy-comp-icon-fg);
+        user-select: none;
+        transition: all 0.5s var(--transition-timing);
+    }
+
+    &__name {
+        display: inline-block;
+        width: 100%;
+        padding: 0 10px;
+        color: var(--policy-comp-fg);
+        font: 400 14px/20px "Open Sans";
+        .text-overflow();
+    }
+}

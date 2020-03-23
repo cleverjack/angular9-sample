@@ -1,0 +1,12 @@
+<div class="select-box" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <div class="select-box__selected">{{ title }}</div>
+    <i class="material-icons select-box__icon">keyboard_arrow_down</i>
+    <ul class="select-box__list" [style.--data-maximum]="maximumItemShow">
+        <li class="select-box__item"
+            *ngFor="let topic of topics | keyvalue: originalOrder"
+            [ngClass]="{'active': isSelected(topic.key)}"
+            (click)="onSelect(topic.key, topic.value)">
+            {{ topic.value.name }}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,61 @@
+@import "../../../_utils.less";
+
+:host {
+  margin-left: 2em;
+  margin-right: 2em;
+  flex: 1;
+}
+
+.search-wrapper {
+  position: relative;
+  &:hover {
+    input[type='search']::placeholder {
+      color: var(--input-search-hover-placeholder-fg)
+    }
+
+    .search-icon {
+      color: var(--input-search-hover-icon-fg);
+    }
+  }
+}
+
+.search-icon {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+  left: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--input-search-icon-fg);
+  transition: color 0.3s var(--transition-timing);
+}
+
+/* TODO: Figure out responsive sizing */
+input[type='search'] {
+  width: 100%;
+  padding: 0.7em 1em 0.7em calc(0.7em + 45px);
+  border: none;
+  background: transparent;
+  border: solid 2px transparent;
+  border-left: solid 2px var(--input-focus-border-color);
+  position: relative;
+  color: var(--input-text-fg);
+  transition: border-radius ease-in-out 150ms, border-color ease-in-out 250ms;
+
+  &::placeholder {
+    font-size: 12px;
+    transition: color 0.3s var(--transition-timing);
+    color: var(--input-text-placeholder);
+  }
+
+  &:focus {
+    outline: none;
+    &::placeholder {
+      color: var(--input-search-hover-placeholder-fg)
+    }
+
+    & + .search-icon {
+      color: var(--input-search-hover-icon-fg);
+    }
+  }
+}

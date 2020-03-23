@@ -1,0 +1,45 @@
+@import "../../../_utils.less";
+
+.tooltip {
+    position: relative;
+    text-align: center;
+
+    &:hover {
+        &:before,
+        &::after {
+            .show-effect();
+        }
+    }
+}
+
+// label level name
+&:before,
+&:after {
+    content: attr(data-label);
+    color: var(--tooltip-fg);
+    background-color: var(--tooltip-bg);
+    padding: 0 10px;
+    min-width: 50px;
+    white-space: nowrap;
+    display: block;
+    position: absolute;
+    top: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    font: 400 10px/32px "Open Sans";
+    .hidden-effect();
+}
+
+// triangle
+&:after {
+    content: '';
+    top: 100%;
+    background-color: transparent;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 8px solid var(--tooltip-bg);
+    min-width: unset;
+    padding: 0;
+    .hidden-effect();
+}

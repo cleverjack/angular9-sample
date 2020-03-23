@@ -1,0 +1,68 @@
+<div class="regression-wrapper" [ngClass]="{'show': isShow}">
+    <!-- overlay -->
+    <div class="overlay" (click)="onClose()"></div>
+    
+    <!-- regression box -->
+    <div class="regression-box">
+        <h4 class="title">Add it to the regression tests</h4>
+    
+        <!-- topic label -->
+        <div class="label-box">
+            <p class="box-title">How should it be labelled</p>
+    
+            <div class="topics">
+                <div class="topic-item" *ngFor="let topic of topicArray">
+                    <i class="topic__icon fas" [class]="topic.icon"></i>
+                    <p class="topic__name" [title]="topic.name">{{ topic.name }}</p>
+    
+                    <div class="topic__level">
+                        <app-tooltip *ngFor="let level of riskLevels | keyvalue" [text]="level.value.name">
+                            <div
+                                (click)="onChangeLevel(topic, level.key)"                            
+                                [style.--background-color]="level.value.color"
+                                [attr.data-label]="level.value.name"
+                                [ngClass]="{'active': level.key == topic.level}"
+                                class="level"
+                                >{{ level.key }}
+                            </div>
+                        </app-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- topic-picker -->
+        <div class="topic-box">
+            <p class="box-title">Add Topics</p>
+    
+            <app-topic-picker [topicSelected]="topics" (onSelectChanged)="onTopicPickerChanged($event)"></app-topic-picker>
+        </div>
+    
+        <!-- language-picker -->
+        <div class="language-box">
+            <p class="box-title">Wrong Language?</p>
+    
+            <app-language-picker [selectedLanguage]="defaultLanguage" (languageChanged)="onLanguageChanged($event)">
+            </app-language-picker>
+        </div>
+    
+        <!-- comment -->
+        <div class="comment">
+            <p class="box-title">Leave a comment</p>
+    
+            <textarea name="" id="" rows="4" placeholder="Type your Comment (Optional)"></textarea>
+        </div>
+    
+        <!-- button group -->
+        <div class="button-group">
+            <button class="item button--light-green">Apply</button>
+            <button class="item button--black" (click)="onClose()">Cancel</button>
+        </div>
+    
+        <!-- close button -->
+        <div class="button-close" (click)="onClose()">
+            <i class="material-icons">close</i>
+            <span>Close</span>
+        </div>
+    </div>
+</div>

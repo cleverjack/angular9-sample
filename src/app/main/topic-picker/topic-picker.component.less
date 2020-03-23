@@ -1,0 +1,81 @@
+@import "../../../_utils.less";
+
+.select-box {
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s var(--transition-timing);
+  background-color: var(--select-box-bg);
+  width: var(--select-box-default-width);
+  padding: var(--select-box-padding);
+  border-radius: var(--select-box-radius);
+
+  &__icon {
+    color: var(--select-box-arrow-fg);
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transition: transform 0.3s var(--transition-timing);
+    transform: translateY(-50%);
+    transform-origin: 50% 45%;
+  }
+
+  & &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 5px 0 10px;
+    background-color: var(--select-box-hover-bg);
+    border-bottom-left-radius: var(--select-box-radius);
+    border-bottom-right-radius: var(--select-box-radius);
+    overflow-y: auto;
+    max-height: calc(var(--select-box-default-item-height) * var(--data-maximum));
+    .hidden-effect();
+    .scroll-bar-01();
+  }
+
+  &__item {
+    padding: 0 0.75em 0 3.5em;
+    height: var(--select-box-default-item-height);
+    line-height: var(--select-box-default-item-height);
+    color: var(--select-box-item-fg);
+    position: relative;
+    transition: all 0.3s var(--transition-timing);
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-radius: 3px;
+        background-color: transparent;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1em;
+        border: 2px solid var(--topic-picker-square-bc);
+        transition: all var(--transition-speed) var(--transition-timing);
+    }
+
+    &.active:before {
+        background-color: var(--topic-picker-tick-bg);
+    }
+  }
+
+  &:hover {
+    background-color: var(--select-box-hover-bg);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .select-box__icon {
+      transform: translateY(-50%) rotateZ(180deg);
+    }
+
+    & .select-box__list {
+      .show-effect();
+    }
+  }
+}

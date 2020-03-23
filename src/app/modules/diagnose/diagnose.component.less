@@ -1,0 +1,216 @@
+@import "../../../_utils.less";
+
+@side-width-pc: 398px;
+
+:host {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 100;
+}
+
+.diagnose-main-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 398px;
+    grid-gap: 16px;
+}
+
+.diagnose-side {
+    padding: 30px 13px 29px;
+    background-color: var(--diagnose-side-bg);
+}
+
+// Header Style
+.title {
+    padding: 0;
+    margin: 0 0 12px 0;
+    font: Bold 20px/24px "Montserrat";
+    color: #F4F4F4;
+    text-transform: capitalize;
+}
+
+.right-content {
+    display: flex;
+    align-items: center;
+
+    > *:not(:first-child) {
+        margin-left: 14px;
+    }
+}
+
+.deeper-analysis-box {
+    display: flex;
+    align-items: center;
+    span {
+        color: var(--deeper-analysis-text-fg);
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+
+app-toogle-slider {
+    line-height: 0;
+}
+
+.refresh-button {
+    cursor: pointer;
+    line-height: 0;
+    transition: all 3s var(--transition-timing);
+    user-select: none;
+    .material-icons {
+        font-size: 18px;
+        transform: rotateZ(45deg);
+        color: var(--refresh-button-fg);
+    }
+
+    &.refreshing {
+        transform: rotateZ(360deg);
+    }
+}
+
+.header-breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
+.copy-button {
+    margin-left: 12px;
+    font-size: 0;
+    cursor: pointer;
+
+    img {
+        fill: red;
+        width: 14px;
+    }
+}
+
+app-loading-indicator {
+    margin: 0;
+}
+
+// Side Box Style
+.diagnose-side .side-item {
+    padding-bottom: 21px;
+    border-bottom: 1px solid #414D55;
+    margin-bottom: 17px;
+}
+
+.side-item-title {
+    font: 600 12px/20px "Open Sans";
+    color: var(--topic-policy-title);
+    text-transform: capitalize;
+    margin-bottom: 12px;
+    margin-top: 0;
+}
+
+.keyword {
+    font: bold 20px/32px "Montserrat";
+    color: var(--diagnose-side-keyword-fg);
+}
+
+.topic-policy {
+    display: flex;
+    margin-bottom: 21px;
+
+    &:first-child {
+        margin-right: 20px;
+    }
+}
+
+.topic-box,
+.policy-box {
+    width: 50%;
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+app-topic:not(:last-child)::ng-deep .topic,
+app-policy-guide:not(:last-child)::ng-deep .policy {
+    margin-bottom: 12px;
+}
+
+app-progress-bar:not(:last-child)::ng-deep .progress-bar {
+    margin-bottom: 20px;
+}
+
+.button-group {
+    margin-top: 26px;
+    font-size: 0;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+
+    .item {
+        display: inline-block;
+    }
+}
+
+// Main-content
+app-diagnose-text::ng-deep .diagnose-text {
+    margin-bottom: 25px;
+}
+
+// Deeper-box
+.deeper-box {
+    .hidden-effect();
+
+    &.show {
+        .show-effect();
+    }
+}
+
+.deeper__title {
+    color: var(--diagnose-deeper-title-fg);
+    margin: 0 0 16px 0;
+    font-weight: normal;
+}
+
+.spelling-mistake {
+    padding: 13px 20px;
+    background-color: var(--diagnose-deeper-item-bg);
+    margin-bottom: 30px;
+    
+    &__text {
+        font: bold 20px/24px "Montserrat";
+        margin: 0;
+    }
+}
+
+.fail-topic {
+    &__item {
+        padding: 6px 20px;
+        display: flex;
+        align-items: center;
+        background-color: var(--diagnose-deeper-item-bg);
+
+        app-topic {
+            min-width: 171px;
+            &::ng-deep .topic {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__text {
+        margin-left: 20px;
+        font: bold 20px/24px "Montserrat";
+    }
+}
+
+// side popup regression-test-box
+app-regression-test-box::ng-deep .regression-wrapper {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 600px;
+}

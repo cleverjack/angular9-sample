@@ -1,0 +1,34 @@
+<div class="diagnose-text">
+    <div class="text-box" *ngFor="let word of wordDiagnosed">
+        <div class="text__item original">{{ word.original }}</div>
+        <div class="text__item solution" [style.--bg-color]="word.level | riskLevelToColor">
+            <span>{{ word.text }}</span>
+
+            <div class="table detail-box">
+                <div class="tr" *ngFor="let rule of word.tokens">
+                    <div class="td">
+                        <span class="risk-level"
+                            [style.--rule-risk-level]="rule.topics[generalRiskTopic] | riskLevelToColor"
+                        >{{ rule.topics[generalRiskTopic] }}</span>
+                    </div>
+                    <div class="td">
+                        <span class="name">{{ rule.text }}</span>
+                    </div>
+                    <div class="td">
+                        <span class="language">{{ rule.language }}</span>
+                    </div>
+                    <div class="td">
+                        <div class="topics">
+                            <app-topic
+                                *ngFor="let topic of rule.topics | keyvalue"
+                                [topic]="topic.key"
+                                [level]="topic.value"
+                                type="compact"
+                            ></app-topic>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

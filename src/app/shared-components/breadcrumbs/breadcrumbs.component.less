@@ -1,0 +1,60 @@
+// ol {
+//   padding: 0;
+//   margin: 0;
+//   list-style: none;
+// }
+
+// li {
+//   display: inline-block;
+// }
+
+// li + li {
+//   margin-left: 0.5em;
+//   &:before {
+//     content: '»';
+//     font-size: 1.5em;
+//     display: inline-block;
+//     margin-right: 0.1em;
+//     transform: translateY(2px);
+//   }
+// }
+
+// li a {
+//   color: var(--link-breadcrumb-inactive);
+//   &.router-link-active {
+//     color: var(--link-breadcrumb-active);
+//   }
+// }
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb__icon {
+  display: inline-block;
+  line-height: 0;
+
+  img {
+    width: 16px;
+  }
+}
+
+xng-breadcrumb ::ng-deep {
+  .xng-breadcrumb-separator {
+    color: var(--breadcrumb-arrow-fg);
+  }
+
+  .xng-breadcrumb-item {
+    a {
+      color: var(--breadcrumb-link-fg);
+      text-decoration: none;
+      font: 600 11px/20px "Open Sans";
+    }
+  }
+  
+  .xng-breadcrumb-trail {
+    color: var(--breadcrumb-link-active);
+    font: 600 11px/20px "Open Sans";
+  }
+}

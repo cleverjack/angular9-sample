@@ -1,0 +1,198 @@
+@import "../../../../_utils.less";
+
+@regression-box-padding: 1.78rem;
+
+.regression-wrapper {
+    .hidden-effect();
+
+    &.show {
+        .show-effect();
+    }
+}
+
+.regression-box {
+    display: grid;
+    grid-template-areas: 
+        "title          title"
+        "label-box      label-box"
+        "topic-select   language-select"
+        "comment        comment"
+        "button-group   button-group";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, min-content);
+    background-color: var(--regression-test-bg);
+    height: 100%;
+    grid-gap: 1.78rem;
+    padding: @regression-box-padding;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    grid-area: title;
+    font: 400 16px/20px "Montserrat";
+    color: var(--regression-test-title-fg);
+    padding-bottom: 1.78125em;
+    margin: 0;
+    border-bottom: 1px solid var(--regression-test-title-border-bg);
+}
+
+.box-title {
+    color: var(--regression-test-title-fg);
+    font: 400 12px/20px "Open Sans";
+    margin: 0 0 1.15em 0;
+}
+
+// label-box style
+.label-box {
+    grid-area: label-box;
+    margin-bottom: 0.4em;
+}
+
+.topic-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px;
+    background-color: var(--regression-test-topic-bg);
+
+    &:not(:last-child) {
+        margin-bottom: 1.15em;
+    }
+}
+
+.topic__icon {
+    font-size: 16px;
+    color: var(--regression-test-icon-fg);
+    margin-right: 12px;
+}
+
+.topic__name {
+    margin: 0;
+    width: 100%;
+    color: var(--regression-test-name-fg);
+    font: 400 14px/20px "Open Sans";
+    .text-overflow();
+}
+
+.topic__level {
+    display: flex;
+    align-items: center;
+
+    app-tooltip {
+        &:not(:last-child) {
+            margin-right: 11px;
+        }
+
+        &:first-child .level {
+            border-radius: 4px 0px 0px 4px;
+        }
+
+        &:last-child .level {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+
+    .level {
+        position: relative;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+        color: var(--regression-test-topic-fg);
+        background-color: var(--regression-test-topic-level-bg);
+        transition: all var(--transition-speed) var(--transition-timing);
+        font: bold 14px/38px "Open Sans";
+        cursor: pointer;
+
+        &.active,
+        &:hover {
+            background-color: var(--background-color);
+            color: var(--regression-test-topic-active-fg);
+        }
+    }
+}
+
+// topic-select & language-select style
+.topic-box {
+    grid-area: topic-select;
+}
+
+.language-box {
+    grid-area: language-select;
+}
+
+app-topic-picker::ng-deep,
+app-language-picker::ng-deep {
+    .select-box {
+        width: 100%;
+    }
+}
+
+// comment style
+.comment {
+    grid-area: comment;
+    margin-bottom: 24px;
+    textarea {
+        font: 600 0.78rem/1.7 "Montserrat";
+        padding: 1.7em 1.1em;
+        background-color: var(--regression-test-textarea-bg);
+        border: none;
+        display: block;
+        width: 100%;
+        color: var(--regression-test-textarea-fg);
+
+        &::placeholder {
+            color: var(--regression-test-textarea-placeholder-fg);
+        }
+    }
+}
+
+// button-group style
+.button-group {
+    grid-area: "button-group";
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .item {
+        display: inline-block;
+        &:not(:last-child) {
+            margin-right: 14px;
+        };
+    }
+}
+
+// button-close
+.button-close {
+    position: absolute;
+    top: @regression-box-padding;
+    right: @regression-box-padding;
+    display: flex;
+    align-items: center;
+    font: 400 14px/20px "Montserrat";
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color var(--transition-speed) var(--transition-timing);
+
+    &:hover {
+        color: var(--accent-highlight);
+    }
+
+    i {
+        font-weight: bold;
+        font-size: 18px;
+        margin-right: 7px;
+    }
+}
+
+// Overlay
+.overlay {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.7);
+}

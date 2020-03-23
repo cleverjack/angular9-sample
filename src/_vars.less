@@ -1,0 +1,233 @@
+/*
+  COLOUR SCHEME DEFINITIONS
+*/
+@import '_breakpoints.less';
+
+/* Default scheme (dark) */
+:root {
+
+  // Core
+  --page-bg: #0c0c0c;
+  --page-header-bg: #111312;
+  --text-color: #f4f4f4;
+  --max-page-width: 1720px;
+  --transition-speed: 250ms;
+  --transition-timing: ease-in-out;
+  --page-content-padding: 2em;
+
+  // Accents
+  --accent-brand: #3FB8AF;
+  --accent-highlight: #F17105;
+  
+  // Link styles
+  --link-color: var(--text-color);
+  --link-hover-color: var(--text-color); //TODO
+  --link-breadcrumb-inactive: #CECECE;
+  --link-breadcrumb-active: var(--text-color);
+
+  // Section styles
+  --section-radius: 10px;
+  --section-padding: 1.5em;
+  --section-padding-tight: 0.75em;
+  --section-bg: #1B1F21;
+  --section-fg: #DDDDDD;
+  --section-highlight-bg: #212329;
+  --section-highlight-fg: #909192;
+  --section-separator: #1b1f20;
+
+  // Dashboard
+  --dashboard-item-bg: #0F0F0F;
+  --dashboard-item-fg: var(--text-color);
+  --dashboard-item-focus-bg: #2F2F2F;
+
+  // Button styles
+  --button-bg: #282E30;
+  --button-fg: #8B9EA7;
+  --button-subtle-bg: #111212;
+  --button-subtle-fg: #8B9EA7;
+  --button-primary-bg: #04E762;
+  --button-primary-fg: #1F1F1F;
+  --button-active-bg: #58C1B8;
+  --button-active-fg: #1F1F1F;
+  --button-radius: 3px;
+  --button-spacing: 1em;
+  --button-spacing-tight: 0.5em;
+  --button-padding: 0.5em 0.75em;
+  --button-focus-ring: 0 0 1px 2px white;
+
+  // Horizontal rule
+  --hr-color: rgba(255, 255, 255, 0.25);
+
+  // Accent colours
+  --accent-1: #3fb8af;
+
+  // Risk indicators
+  --risk-0: #35B536;
+  --risk-1: #468847;
+  --risk-2: #999999;
+  --risk-3: #f89406;
+  --risk-4: #1D8DC4;
+  --risk-5: #F74F07;
+  --risk-6: #D42D2A;
+  --risk-7: #B94A48;
+
+  // Pass/fail indicators
+  --test-pass: #4bd585;
+  --test-fail: #e4604d;
+
+  // Text inputs
+  --input-border: solid 2px #666666;
+  --input-focus-border-color: rgba(255, 255, 255, 0.3);
+  --input-focus-border: solid 2px var(--input-focus-border-color);
+  --input-text-bg: transparent;
+  --input-text-fg: #DDDDDD;
+  --input-text-placeholder: rgba(255, 255, 255, 0.5);
+  --input-text-padding: 0.5em 0.75em;
+  --input-text-radius: 5px;
+
+  // Select inputs
+  --input-select-bg: #3f3f48;
+  --input-select-fg: #DDDDDD;
+  --input-select-placeholder: #DDDDDD;
+  --input-select-padding: 0.5em 0.75em;
+  --input-select-radius: 5px;
+
+  // Select Box Component
+  --select-box-default-width: 160px;
+  --select-box-default-item-height: 30px;
+  --select-box-padding: 0.9em 1em;
+  --select-box-radius: 4px;
+  --select-box-bg: #111312;
+  --select-box-arrow-fg: #636D73;
+  --select-box-selected-fg: #8EA2AB;
+  --select-box-item-fg: #FFF;
+  --select-box-hover-bg: #282E30;
+  --select-box-hover-selection-fg: #0C0C0C;
+  --select-box-hover-selection-bg: #3FB8AF;
+  --select-box-hover-fg: #FFF;
+
+  // Topic Chips
+  --topic-chip-bg: #0F0F0F;
+  --topic-chip-fg: #F0F0F0;
+  --topic-chip-indicator: solid 3px var(--topic-chip-fg);
+  --topic-chip-radius: 3px;
+
+  // Topic Chips: Alternate Style
+  --topic-chip-alt-bg: var(--section-bg);
+  --topic-chip-alt-fg: var(--section-fg);
+
+  // Input Search
+  --input-search-icon-fg: #636d73;
+  --input-search-hover-icon-fg: #FFF;
+  --input-search-hover-placeholder-fg: #414D55;
+
+  // Toggle Slider
+  --toggle-slider-bg: #2E3334;
+  --toggle-slider-ball-bg: #636D73;
+  --toggle-slider-active-bg: #234240;
+  --toggle-slider-active-ball-bg: #58C1B8;
+
+  // Deeper Analysis
+  --deeper-analysis-text-fg: #8EA2AB;
+
+  // Refresh Button
+  --refresh-button-fg: #636D73;
+
+  // Breadcrumb
+  --breadcrumb-link-fg: #8EA2AB;
+  --breadcrumb-arrow-fg: #636D73;
+  --breadcrumb-link-active: #FFFFFF;
+
+  // Progress bar
+  --progress-bar-line-bg: #1B1F22;
+  --progress-bar-line-success-bg: #58C1B8;
+  --progress-bar-fg: #FFF;
+
+  // Topic
+  --topic-comp-bg: #1B1F22;
+  --topic-comp-fg: #FFF;
+  --topic-comp-icon-fg: #636D73;
+  
+  // Policy
+  --policy-comp-bg: #1B1F22;
+  --policy-comp-fg: #FFF;
+  --policy-comp-icon-fg: #FFF;
+
+  // Topic picker
+  --topic-picker-square-bc: #1b1f23;
+  --topic-picker-tick-bg: #0dbfb9;
+
+  // Diagnose-page
+  --diagnose-side-bg: #111212;
+  --diagnose-side-keyword-fg: #F4F4F4;
+  --topic-policy-title: #636D73;
+  --diagnose-deeper-title-fg: #F4F4F4;
+  --diagnose-deeper-item-bg: #111212;
+
+  // Diagnose text
+  --diagnose-text-bg: #111212;
+  --diagnose-text-deatil-box-max-height: 230px;
+  --diagnose-text-deatil-box-bg: #282e30;
+  --diagnose-text-deatil-box-hover-bg: #414D55;
+  --diagnose-text-language-fg: #999;
+  --diagnose-text-solution-fg: #1b1f22;
+  --diagnose-text-original-fg: #F4F4F4;
+  --diagnose-text-original-bg: #292E2F;
+
+  // Loading-indicator
+  --loading-indicator-fg: var(--accent-brand);
+  --error-indicator-fg: var(--accent-brand);
+  --error-indicator-text-fg: #FFF;
+
+  // Tooltip
+  --tooltip-bg: #232726;
+  --tooltip-fg: #999;
+
+  // Regression Test Box
+  --regression-test-bg: #1B1F20;
+  
+  --regression-test-title-fg: #FFF;
+  --regression-test-title-border-bg: #414D55;
+  
+  --regression-test-topic-bg: #111212;
+  --regression-test-icon-fg: #636D73;
+  --regression-test-name-fg: #FFFFFF;
+  --regression-test-topic-level-bg: #292E2E;
+  --regression-test-topic-fg: #999999;
+  --regression-test-topic-active-fg: #1B1F22;
+  
+  --regression-test-topic-select-bg: #111312;
+  --regression-test-topic-select-fg: #8EA2AB;
+
+  --regression-test-textarea-bg: #292E2F;
+  --regression-test-textarea-placeholder-fg: #96A6AE;
+  --regression-test-textarea-fg: #F4F4F4;
+}
+
+@media (prefers-contrast: high) {
+  // TODO: Dark scheme, high contrast
+}
+
+@media (prefers-contrast: low) {
+  // TODO: Dark scheme, low contrast
+}
+
+/* Light scheme */
+@media (prefers-color-scheme: light) {
+  // TODO: Light theme
+  // See https://twitter.com/steveschoger/status/1151160261170126850 for guidance.
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: high) {
+  // TODO: Light scheme, high contrast
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: low) {
+  // TODO: Light scheme, low contrast
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-speed: 0;
+  }
+}

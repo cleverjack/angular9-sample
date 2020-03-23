@@ -1,0 +1,39 @@
+@ball-width: 20px;
+
+app-toogle-slider {
+    line-height: 0;
+}
+
+.toggle-slider {
+    width: 36px;
+    height: 14px;
+    position: relative;
+    background-color: var(--toggle-slider-bg);
+    border-radius: 30px;
+    display: inline-block;
+    cursor: pointer;
+
+    // ball
+    &:after {
+        content: '';
+        display: block;
+        width: @ball-width;
+        height: @ball-width;
+        background-color: var(--toggle-slider-ball-bg);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        transition: all 0.2s var(--transition-timing);
+    }
+
+    &.active {
+        background-color: var(--toggle-slider-active-bg);
+        
+        &:after {
+            background-color: var(--toggle-slider-active-ball-bg);
+            left: calc(100% - @ball-width);
+        }
+    }
+}

@@ -1,0 +1,20 @@
+:host {
+  background: var(--page-header-bg);
+  padding: 1em var(--page-content-padding);
+  grid-area: header;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-page-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 999;
+}
+
+language-picker::ng-deep .select-box {
+  background-color: var(--select-box-hover-bg);
+}

@@ -1,0 +1,118 @@
+<section id="diagnose">
+    <div class="header">
+        <div class="left-content">
+            <h3 class="title">Diagnose</h3>
+
+            <div class="header-breadcrumb">
+                <app-breadcrumbs></app-breadcrumbs>
+                <div class="copy-button" (click)="onCopy()">
+                    <app-tooltip text="Copy URL to Clipboard">
+                        <img src="/assets/icons/copy.svg" alt="copy">
+                    </app-tooltip>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-content">
+            <div class="refresh-button" (click)="onRefresh()">
+                <app-tooltip text="Refresh">
+                    <i class="material-icons">autorenew</i>
+                </app-tooltip>
+            </div>
+
+            <app-language-picker
+                class="language--code"
+                type="code"
+                [selectedLanguage]="this.userService.preferences.language"
+                (languageChanged)="onLanguageChanged($event)"
+            ></app-language-picker>
+
+            <app-select-box
+                [listData]="contentTypeList"
+                [selectedValue]="this.userService.preferences.lastContentType"
+                (selectChanged)="onContentTypeChanged($event)"
+            ></app-select-box>
+
+
+            <app-client-picker
+                [selectedClient]="this.userService.preferences.lastClientId"
+                (clientChanged)="onUserChangedClient($event)"
+            ></app-client-picker>
+
+            <div class="deeper-analysis-box">
+                <app-toogle-slider
+                    [defaultActive]="isDefaultActiveDeeperAnalysis"
+                    (_onChanged)="onDeeperAnalysisChanged($event)"
+                ></app-toogle-slider>
+
+                <span>Deeper Analysis</span>
+            </div>
+        </div>
+    </div>
+
+    <app-loading-indicator [loading]="isLoading" [error]="isError">
+        <div *ngIf="!isLoading && !isError" class="diagnose-main-content">
+            <div class="diagnose-text">
+                <app-diagnose-text [extended]="extended"></app-diagnose-text>
+
+                <div class="deeper-box" [ngClass]="{show: isDeep}">
+                    <h4 class="deeper__title">Spelling Mistakes</h4>
+                    <div class="spelling-mistake">
+                        <p class="spelling-mistake__text" *ngFor="let mistake of failingFragments">{{ mistake.original }}</p>
+                    </div>
+
+                    <h4 class="deeper__title">What caused which tag</h4>
+                    <div class="fail-topic">
+                        <div class="fail-topic__item" *ngFor="let mistake of failingFragments">
+                            <app-topic
+                                *ngFor="let topic of mistake.failTopic | keyvalue"
+                                [topic]="topic.key"
+                                [level]="topic.value"
+                            ></app-topic>
+                            <span class="fail-topic__text">{{ mistake.text }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diagnose-side">
+                <div class="side-item keyword">{{ keyWord }}</div>
+                <div class="side-item topic-policy">
+                    <div class="topic-box">
+                        <h5 class="side-item-title">Topics</h5>
+                        <app-topic
+                            *ngFor="let topic of topics | keyvalue"
+                            [topic]="topic.key"
+                            [level]="topic.value"
+                        ></app-topic>
+                    </div>
+                    
+                    <div class="policy-box">
+                        <h5 class="side-item-title">Policy Guides</h5>
+                        <app-policy-guide 
+                            *ngFor="let policy of policies"
+                            [policy]="policy"
+                        ></app-policy-guide>
+                    </div>
+                </div>
+
+                <div class="side-item ai-prediction">
+                    <h5 class="side-item-title">AI Prediction</h5>
+                    <app-progress-bar
+                        *ngFor="let predic of predictions | keyvalue"
+                        [label]="predic.key | rightUnderscore"
+                        [value]="predic.value"
+                    ></app-progress-bar>
+                </div>
+
+                <div class="button-group">
+                    <button class="item button--grey" (click)="onShowRegressionBox()">Escalate</button>
+                    <button class="item button--fountain-blue">Gerkin Test</button>
+                    <button class="item button--light-green">Create Rule</button>
+                </div>
+            </div>
+
+            <app-regression-test-box (_close)="onCloseRegressionBox()" [isShow]="isShowRegressionBox" [topics]="topics"></app-regression-test-box>
+        </div>
+    </app-loading-indicator>
+</section>

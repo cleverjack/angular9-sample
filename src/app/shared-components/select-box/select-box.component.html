@@ -1,0 +1,12 @@
+<div class="select-box">
+    <div class="select-box__selected">{{ selectedContent }}</div>
+    <i class="material-icons select-box__icon">keyboard_arrow_down</i>
+    <ul class="select-box__list" [style.--data-maximum]="maximumItemShow">
+        <li class="select-box__item"
+            *ngFor="let item of listData"
+            [ngClass]="{active: item.value === selectedValue}"
+            (click)="onSelect(item.value)">
+            {{ item.content }}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,45 @@
+@import "../../../_utils.less"; 
+
+@line-width-pc: 68%;
+@line-height-pc: 5px;
+
+.progress-bar {
+    color: var(--progress-bar-fg);
+    font: 600 16px/20px "Open Sans";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label {
+    width: 20.5%;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font: 600 16px/20px "Open Sans";
+    .text-overflow();
+}
+
+.percent-text {
+    width: 45px; //max width as 100% for pc
+    text-align: right;
+    display: inline-block;
+}
+
+.line {
+    width: @line-width-pc;
+    height: @line-height-pc;
+    background-color: var(--progress-bar-line-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        background-color: var(--progress-bar-line-success-bg);
+        width: var(--percent);
+        height: 100%;
+        transition: all 0.7s var(--transition-timing);
+    }
+}

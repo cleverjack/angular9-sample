@@ -1,0 +1,14 @@
+<div class="breadcrumb">
+  <div class="breadcrumb__icon">
+    <a routerLink="/">
+      <img src="/assets/comunity_sift-logo-compact.svg" alt="home">
+    </a>
+  </div>
+
+  <!-- <xng-breadcrumb separator=">"></xng-breadcrumb> -->
+  <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+ 
+  <ng-template #iconTemplate>
+    <i class="material-icons">keyboard_arrow_right</i>
+  </ng-template>
+</div>
